@@ -30,3 +30,15 @@ div.top {
 h1.time {
   text-align: center;
 }
+
+.cryptos {
+  display: flex;
+}
+
+.dogecoin {
+ display: flex;
+}
+
+#img-doge {
+  margin-right: 10px;
+}

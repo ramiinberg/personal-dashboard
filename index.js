@@ -17,8 +17,16 @@ fetch('https://api.unsplash.com/photos/random?orientation=landscape&query=nature
 })
 
 fetch('https://api.coingecko.com/api/v3/coins/bitcoin')
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) {
+      throw Error("Something went wrong")
+    }
+    return res.json()
+  })
   .then(data => {
+    const { image, name } = data
+    document.getElementById("img-doge").src = image.small
+    document.getElementById("name-doge").textContent = name
     console.log('data', data)
   })
   .catch(error => console.error(error))
