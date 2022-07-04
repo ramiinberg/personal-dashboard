@@ -4,6 +4,8 @@ fetch('https://api.unsplash.com/photos/random?orientation=landscape&query=nature
 .then(res => res.json())
 .then(data => {
   console.log('data', data)
-  document.body.style.backgroundImage = `url(${data.urls.full})`
+  const { urls, user } = data
+  document.body.style.backgroundImage = `url(${urls.full})`
+  document.getElementById('image-creator').textContent = `By: ${user.name}`
 })
 
