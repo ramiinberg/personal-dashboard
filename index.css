@@ -33,12 +33,23 @@ h1.time {
 
 .cryptos {
   display: flex;
+  flex-direction: column;
+  /* font-size: 1.3rem; */
 }
 
-.dogecoin {
+.cryptos p {
+  font-size: 1.3rem;
+}
+
+.dogecoin, .bitcoin, .ethereum, .cosmos {
  display: flex;
+ margin-bottom: 0.25em;
 }
 
-#img-doge {
-  margin-right: 10px;
+.cosmos {
+  margin-bottom: 0;
+}
+
+#img-doge, #img-bit, #img-ethe, #img-cosm {
+  margin-right: 0.625em;
 }

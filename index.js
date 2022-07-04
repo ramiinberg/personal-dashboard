@@ -17,6 +17,20 @@ fetch('https://api.unsplash.com/photos/random?orientation=landscape&query=nature
 })
 
 fetch('https://api.coingecko.com/api/v3/coins/bitcoin')
+  .then (res => {
+  if (!res.ok) {
+    throw Error("Something went wrong")
+  }
+  return res.json()
+  })
+  .then(data => {
+    const { image, name } = data
+    document.getElementById("img-bit").src = image.small
+    document.getElementById("name-bit").textContent = name
+  })
+  .catch(error => console.error(error))
+
+fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
   .then(res => {
     if (!res.ok) {
       throw Error("Something went wrong")
@@ -27,25 +41,35 @@ fetch('https://api.coingecko.com/api/v3/coins/bitcoin')
     const { image, name } = data
     document.getElementById("img-doge").src = image.small
     document.getElementById("name-doge").textContent = name
-    console.log('data', data)
   })
   .catch(error => console.error(error))
 
-fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
-  .then(res => res.json())
-  .then(data => {
-    console.log('data', data)
-  })
 
 fetch('https://api.coingecko.com/api/v3/coins/ethereum')
-  .then(res => res.json())
-  .then(data => {
-    console.log('data', data)
+  .then(res => {
+    if (!res.ok) {
+      throw Error("Something went wrong")
+    }
+    return res.json()
   })
+  .then(data => {
+    const { image, name } = data
+    document.getElementById("img-ethe").src = image.small
+    document.getElementById("name-ethe").textContent = name
+  })
+  .catch(error => console.error(error))
 
 fetch('https://api.coingecko.com/api/v3/coins/cosmos')
-  .then(res => res.json())
-  .then(data => {
-    console.log('data', data)
-  })
+.then(res => {
+  if (!res.ok) {
+    throw Error("Something went wrong")
+  }
+  return res.json()
+})
+.then(data => {
+  const { image, name } = data
+  document.getElementById("img-cosm").src = image.small
+  document.getElementById("name-cosm").textContent = name
+})
+.catch(error => console.error(error))
 
