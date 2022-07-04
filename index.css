@@ -31,14 +31,11 @@ h1.time {
   text-align: center;
 }
 
+/* fix styling */
 .cryptos {
   display: flex;
   flex-direction: column;
   /* font-size: 1.3rem; */
-}
-
-.cryptos p {
-  font-size: 1.3rem;
 }
 
 .dogecoin, .bitcoin, .ethereum, .cosmos {
