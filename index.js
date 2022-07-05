@@ -36,8 +36,12 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
   })
   .catch(error => console.error(error))
 
+setInterval(currentTime, 1000);
+
+function currentTime() {
   const current = new Date().toLocaleTimeString('fi-FI', { hour: '2-digit', minute: '2-digit' })
   const currentTimeEl = document.getElementById('time')
   currentTimeEl.textContent = current
+}
 
 
