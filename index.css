@@ -38,16 +38,29 @@ h1.time {
   font-size: 1.3rem;
 }
 
-.dogecoin, .bitcoin, .ethereum, .cosmos {
+.coin {
  display: flex;
- align-items: center;
- margin-bottom: 0.25em;
+ flex-direction: column;
 }
 
-.cosmos {
+.coin-info {
+  display: flex;
+  align-items: center;
+}
+
+#img-doge {
+  margin-right: 0.625em;
+}
+
+#compare-price, #current-price {
+  margin-top: 0.375em;
   margin-bottom: 0;
 }
 
-#img-doge, #img-bit, #img-ethe, #img-cosm {
-  margin-right: 0.625em;
+.color-green {
+  color:greenyellow;
+}
+
+.color-red {
+  color:red;
 }
