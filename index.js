@@ -1,8 +1,6 @@
 
 const imageCreatorEl = document.getElementById('image-creator')
 
-console.log(process.env)
-
 fetch('https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature')
 .then(res => res.json())
 .then(data => {
