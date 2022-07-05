@@ -79,3 +79,7 @@ h1.time {
   text-align: center;
   margin: 0;
 }
+
+.weather img {
+  width: 70px;
+}
