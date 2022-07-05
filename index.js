@@ -46,10 +46,25 @@ function currentTime() {
 }
 
 if('geolocation' in navigator) {
+
+  const apiKey = '1a2a690242a109000e75302939643f88'
+
   /* geolocation is available */
   navigator.geolocation.getCurrentPosition((position) => {
+    const { latitude, longitude } = position.coords 
     console.log(position.coords.latitude, position.coords.longitude)
-    // doSomething(position.coords.latitude, position.coords.longitude);
+    // fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`)
+    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric`)
+      .then(res => {
+        if (!res.ok) {
+          throw Error("Something went wrong in the weather fetch")
+        }
+        return res.json()
+      })
+      .then(data => {
+          console.log('data', data)
+        })
+      .catch(error => console.error(error))
   });
 } else {
   /* geolocation IS NOT available */
