@@ -16,20 +16,6 @@ fetch('https://api.unsplash.com/photos/random?orientation=landscape&query=nature
   imageCreatorEl.textContent = 'By: Vadim Sherbakov'
 })
 
-// fetch('https://api.coingecko.com/api/v3/coins/bitcoin')
-//   .then (res => {
-//   if (!res.ok) {
-//     throw Error("Something went wrong")
-//   }
-//   return res.json()
-//   })
-//   .then(data => {
-//     const { image, name } = data
-//     document.getElementById("img-bit").src = image.small
-//     document.getElementById("name-bit").textContent = name
-//   })
-//   .catch(error => console.error(error))
-
 fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
   .then(res => {
     if (!res.ok) {
@@ -38,16 +24,12 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
     return res.json()
   })
   .then(data => {
-    console.log('data', data)
-    /*         price_change_percentage_30d_in_currency:
-    */
     const { image, name, market_data } = data
     document.getElementById("img-doge").src = image.small
     document.getElementById("name-doge").textContent = name
     document.getElementById("current-price").textContent = `${market_data.current_price.eur} €`
     const priceChange = market_data.price_change_percentage_30d_in_currency.eur.toFixed(2)
     const comparePriceEl = document.getElementById("compare-price")
-    // console.log(priceChange >= 0 ? <i class="fa-solid fa-arrow-up"></i> : <i class="fa-solid fa-arrow-down"></i>)
     comparePriceEl.innerHTML = `${priceChange >= 0 ? "<i class='fa-solid fa-arrow-up'></i>" : "<i class='fa-solid fa-arrow-down'></i>"} ${priceChange} % <span style="color: white;">(30 days)</span>`
 
     comparePriceEl.classList.add(priceChange >= 0 ? "color-green" : "color-red")
@@ -56,32 +38,4 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
   })
   .catch(error => console.error(error))
 
-
-// fetch('https://api.coingecko.com/api/v3/coins/ethereum')
-//   .then(res => {
-//     if (!res.ok) {
-//       throw Error("Something went wrong")
-//     }
-//     return res.json()
-//   })
-//   .then(data => {
-//     const { image, name } = data
-//     document.getElementById("img-ethe").src = image.small
-//     document.getElementById("name-ethe").textContent = name
-//   })
-//   .catch(error => console.error(error))
-
-// fetch('https://api.coingecko.com/api/v3/coins/cosmos')
-// .then(res => {
-//   if (!res.ok) {
-//     throw Error("Something went wrong")
-//   }
-//   return res.json()
-// })
-// .then(data => {
-//   const { image, name } = data
-//   document.getElementById("img-cosm").src = image.small
-//   document.getElementById("name-cosm").textContent = name
-// })
-// .catch(error => console.error(error))
 
