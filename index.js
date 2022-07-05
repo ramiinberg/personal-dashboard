@@ -45,6 +45,7 @@ function currentTime() {
   currentTimeEl.textContent = current
 }
 
+
 if('geolocation' in navigator) {
 
   const apiKey = '1a2a690242a109000e75302939643f88'
@@ -62,7 +63,9 @@ if('geolocation' in navigator) {
         return res.json()
       })
       .then(data => {
-          console.log('data', data)
+          const weatherIcon = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+          document.getElementById("img-weather").src = weatherIcon
+          console.log('weatherIcon', weatherIcon)
         })
       .catch(error => console.error(error))
   });
