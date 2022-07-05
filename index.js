@@ -33,9 +33,9 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
     comparePriceEl.innerHTML = `${priceChange >= 0 ? "<i class='fa-solid fa-arrow-up'></i>" : "<i class='fa-solid fa-arrow-down'></i>"} ${priceChange} % <span style="color: white;">(30 days)</span>`
 
     comparePriceEl.classList.add(priceChange >= 0 ? "color-green" : "color-red")
-
-
   })
   .catch(error => console.error(error))
+
+  const current = new Date().toLocaleTimeString('fi-FI', { hour: '2-digit', minute: '2-digit' })
 
 
