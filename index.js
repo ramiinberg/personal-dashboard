@@ -53,7 +53,6 @@ if('geolocation' in navigator) {
   /* geolocation is available */
   navigator.geolocation.getCurrentPosition((position) => {
     const { latitude, longitude } = position.coords 
-    console.log(position.coords.latitude, position.coords.longitude)
     // fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`)
     fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric`)
       .then(res => {
@@ -63,12 +62,14 @@ if('geolocation' in navigator) {
         return res.json()
       })
       .then(data => {
-          const weatherIcon = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
-          document.getElementById("weather").innerHTML = `
-            <img src=${weatherIcon}>
-          `
-          console.log('weatherIcon', weatherIcon)
-        })
+        const { weather, name, main } = data
+        const weatherIcon = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
+        document.getElementById("weather").innerHTML = `
+          <img src=${weatherIcon}>
+          <p>${name}</p>
+          <p>${main.temp} °C</p>
+        `
+      })
       .catch(error => console.error(error))
   });
 } else {
