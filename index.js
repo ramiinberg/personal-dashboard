@@ -1,8 +1,9 @@
 
 const imageCreatorEl = document.getElementById('image-creator')
 
-// Muista piilottaa client id.. 
-fetch('https://api.unsplash.com/photos/random?orientation=landscape&query=nature&client_id=fmlNMcq0oHotgRDNfsvEt-Xcynv6wu1h34T7Y5k0_8A')
+console.log(process.env)
+
+fetch('https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature')
 .then(res => res.json())
 .then(data => {
   const { urls, user } = data
@@ -47,13 +48,9 @@ function currentTime() {
 
 
 if('geolocation' in navigator) {
-
-  const apiKey = '1a2a690242a109000e75302939643f88'
-
   /* geolocation is available */
   navigator.geolocation.getCurrentPosition((position) => {
     const { latitude, longitude } = position.coords 
-    // fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`)
     fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric`)
       .then(res => {
         if (!res.ok) {
