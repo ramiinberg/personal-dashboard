@@ -59,10 +59,13 @@ if('geolocation' in navigator) {
       .then(data => {
         const { weather, name, main } = data
         const weatherIcon = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
-        document.getElementById("weather").innerHTML = `
+        document.getElementById("weather-icon-and-temp").innerHTML = `
           <img src=${weatherIcon}>
-          <p>${name}</p>
-          <p>${main.temp} °C</p>
+          <p>${Math.round(main.temp)} °C</p>
+        `
+
+        document.getElementById("weather-city").innerHTML = `
+         <p>${name}</p>
         `
       })
       .catch(error => console.error(error))
