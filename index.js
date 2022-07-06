@@ -15,7 +15,7 @@ fetch('https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
   imageCreatorEl.textContent = 'By: Vadim Sherbakov'
 })
 
-fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
+fetch('https://uselessfacts.jsph.pl/random.json?language=en')
   .then(res => {
     if (!res.ok) {
       throw Error("Something went wrong")
@@ -23,15 +23,8 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
     return res.json()
   })
   .then(data => {
-    const { image, name, market_data } = data
-    document.getElementById("img-doge").src = image.small
-    document.getElementById("name-doge").textContent = name
-    document.getElementById("current-price").textContent = `${market_data.current_price.eur} €`
-    const priceChange = market_data.price_change_percentage_30d_in_currency.eur.toFixed(2)
-    const comparePriceEl = document.getElementById("compare-price")
-    comparePriceEl.innerHTML = `${priceChange >= 0 ? "<i class='fa-solid fa-arrow-up'></i>" : "<i class='fa-solid fa-arrow-down'></i>"} ${priceChange} % <span style="color: white;">(30 days)</span>`
-
-    comparePriceEl.classList.add(priceChange >= 0 ? "color-green" : "color-red")
+    console.log('data', data.text)
+    document.getElementById('random-fact').innerHTML = `<p class="random-fact-p"><span class='random-fact-title'>Random fact</span><br> ${data.text}</p>`
   })
   .catch(error => console.error(error))
 

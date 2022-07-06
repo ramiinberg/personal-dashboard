@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  background: no-repeat center center fixed; 
+  background: no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -32,39 +32,6 @@ h1.time {
   text-align: center;
 }
 
-.cryptos {
-  display: flex;
-  flex-direction: column;
-  font-size: 1.3rem;
-}
-
-.coin {
- display: flex;
- flex-direction: column;
-}
-
-.coin-info {
-  display: flex;
-  align-items: center;
-}
-
-#img-doge {
-  margin-right: 0.625em;
-}
-
-#compare-price, #current-price {
-  margin-top: 0.375em;
-  margin-bottom: 0;
-}
-
-.color-green {
-  color:greenyellow;
-}
-
-.color-red {
-  color:red;
-}
-
 .weather {
   display: flex;
   flex-direction: column;
@@ -85,6 +52,15 @@ h1.time {
   width: 70px;
 }
 
-.image-creator {
-  font-size: 1.3rem;
+.image-creator, .random-fact-p {
+  font-size: 1.5rem;
+}
+
+.random-fact-p {
+  max-width: 400px;
+}
+
+.random-fact-title {
+  font-weight: bold;
+  text-decoration: underline;
 }
