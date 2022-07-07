@@ -72,7 +72,28 @@ function generateTime() {
     setInterval(currentTime, 1000);
 }
 
+function generateCocktail() {
+  fetch("https://thecocktaildb.com/api/json/v1/1/random.php")
+    .then(res => {
+      if (!res.ok) {
+        throw Error("Something went wrong in the cocktail fetch")
+      }
+      return res.json()
+    })
+    .then(data => {
+
+      console.log('data', data)
+      const { strDrinkThumb, strDrink, strIngredient1 } = data.drinks[0]
+
+      document.getElementById("cocktail").innerHTML = `
+        <img src=${strDrinkThumb} alt=${strDrink}>
+        <h2>${strDrink}</h2>
+      `
+    })
+}
+
 generateBackgroundImage(imageCreatorEl)
 generateUselessFact()
 generateWeather()
 generateTime()
+generateCocktail()

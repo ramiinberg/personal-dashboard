@@ -78,8 +78,16 @@ body {
 }
 
 .cocktail {
+  padding: 1em;
   grid-area: cocktail;
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
+}
+
+.cocktail > img {
+  width: 100px;
+  border: 4px white solid;
+  border-radius: 10em;
 }
